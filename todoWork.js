@@ -1,14 +1,9 @@
+//JQuery: true
 function getTodos() {
     try {
         var todos = JSON.parse(localStorage.getItem('todos'));
         if (todos === null) {
-            alert('No todos found');
-            todos = [];
-            saveTodos(todos);
-        } else if (todos.length === 0) {
-            alert('No todos found');
-        } else if (todos == "" || todos == null) {
-            alert('No todos found');
+            return [];
         }
     } catch (e) {
         todos = [];
@@ -18,70 +13,58 @@ function getTodos() {
 }
 
 function saveTodos(todos) {
-    localStorage.setItem('todos', todos);
+    var todoObject = {};
+    for (todo in todos) {
+        todoObject[todo] = buildTodoItem(todos[todo]);
+    }
+    localStorage.setItem('todos', JSON.stringify(todoObject));
 }
 
 function saveSingleTodo(todo) {
     var todos = getTodos();
-    todos.push(todo);
+    todos[todo] = buildTodoItem(todo);
     saveTodos(todos);
 }
 
 function renderTodos() {
     var todos = getTodos();
-    var todoList = document.getElementById('todos');
-    todoList.innerHTML = '';
-    for (var i = 0; i < todos.length; i++) {
-        var todo = todos[i];
-        var item = buildTodoItem(todo);
-        todoList.appendChild(item);
+    var todoList = $('#todos')
+    for (todo in todos) {
+        todoList.append(todos[todo]);
     }
 }
 
 function buildTodoItem(text) {
-    let item = document.createElement('li');
-    let mark = document.createElement('input');
-    mark.type = 'checkbox';
-    mark.checked = false;
-    mark.valueChanged = function() {
-        if (mark.checked) {
-            markTodo(text);
-        } else {
-            // nothing
-            item.appendChild(mark);
-            item.appendChild(document.createTextNode(text));
-            let del = document.createElement('button');
-            del.innerHTML = 'delete';
-            del.onclick = function() {
-                item.remove();
-                deleteTodo(text);
-            }
-            item.appendChild(del);
-            return item;
-        }
+    var item = '<li>' + text + '<button class="delete material-symbols-outlined">delete</button><button class="mark material-symbols-outlined">mark</button></li>';
+    $('.delete').click(function() {
+        $(this).parent().remove();
+        deleteTodo($(this).parent().text());
+    });
+    $('.mark').click(function() {
+        $(this).parent().toggleClass('marked');
+        markTodo($(this).parent().text());
+    });
+    return item;
+}
 
-        function deleteTodo(text) {
-            var todos = getTodos();
-            for (var i = 0; i < todos.length; i++) {
-                if (todos[i] === text) {
-                    todos.splice(i, 1);
-                    saveTodos(todos);
-                    renderTodos();
-                    break;
-                }
-            }
-        }
-
-        function markTodo(text) {
-            var todos = getTodos();
-            for (var i = 0; i < todos.length; i++) {
-                if (todos[i] === text) {
-                    todos.splice(i, 1);
-                    saveTodos(todos);
-                    renderTodos();
-                    break;
-                }
-            }
+function deleteTodo(text) {
+    var todos = getTodos();
+    for (todo in todos) {
+        if (todo === text) {
+            delete todos[todo];
         }
     }
+    saveTodos(todos);
+    renderTodos();
+}
+
+function markTodo(text) {
+    var todos = getTodos();
+    for (todo in todos) {
+        if (todo === text) {
+            todos[todo].classList.toggle('marked');
+        }
+    }
+    saveTodos(todos);
+    renderTodos();
 }

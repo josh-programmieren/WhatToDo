@@ -1,29 +1,15 @@
-#todos li input {
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
+.mark {
+    background-color: #ff0;
 }
 
-#todos li input:hover {
-    cursor: pointer;
+.delete {
+    background-color: #f00;
 }
 
-#todos li label {
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
+.mark:hover {
+    background-color: #00f;
 }
 
-#todos li button {
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    background-color: blue;
-    color: white;
-}
-
-#todos li button:hover {
-    cursor: pointer;
-    background-color: white;
-    color: blue;
+.delete:hover {
+    background-color: #0f0;
 }
