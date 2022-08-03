@@ -1,0 +1,48 @@
+body {
+    background-color: #ff661a;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+#app {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    z-index: 1;
+    border: 2px solid #001;
+    font-size: 20px;
+}
+
+#head {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#foot {
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#add-task {
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#add-task:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
