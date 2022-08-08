@@ -2,3 +2,6 @@
 /app/firebase/key.json
 # __pycache__ folder for python in app folder
 /app/__pycache__
+/__pycache__
+#output folder for auto-py-to-exe
+/output
