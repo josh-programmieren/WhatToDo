@@ -1,2 +1,4 @@
 # key file for google firebase
 /app/firebase/key.json
+# __pycache__ folder for python in app folder
+/app/__pycache__
