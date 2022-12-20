@@ -1,18 +1,8 @@
 # WhatToDo
 ## What is it?
 This is a simple todo list. It is a simple way to keep track of things that you need to do.
-## Build it
-To build it, you need to install the following dependencies:
-``` flask
-pip install flask
-```
-``` flask-wtf
-pip install flask-wtf
-```
-``` firebase-admin
-pip install firebase-admin
-```
-How to run it:
+
+## How to run it:
 ``` Install requirements
 pip install -r requirements.txt
 ```

@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(18,30,36);
+    color: rgb(90,150,180)
+}
+a {
+    border: 1.8px rgb(32,18,64);
+    background-color: rgb(18,32,36);
+    color: rgb(90,160,180);
+}
+a:hover {
+    border: 3.6px rgb(64,36,128);
+    background-color: rgb(36,64,72);
+    color: rgb(180,65,105);
+}
