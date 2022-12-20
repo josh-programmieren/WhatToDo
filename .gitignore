@@ -3,4 +3,4 @@
 /__pycache__
 #output folder for auto-py-to-exe
 /output
-./.vscode/
+.vscode/settings.json
